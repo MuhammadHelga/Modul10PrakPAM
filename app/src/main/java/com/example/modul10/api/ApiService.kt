@@ -28,9 +28,9 @@ interface ApiService {
     @GET("mahasiswa")
     fun getAllMahasiswa(): Call<MahasiswaResponse>
 
-    @DELETE("mahasiswa")
+    @DELETE("mahasiswa/{id}")
     fun deleteMahasiswa(
-        @Query("id") id: String
+        @Path("id") id: String
     ): Call<Void>
 
     @PUT("mahasiswa/{id}")

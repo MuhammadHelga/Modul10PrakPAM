@@ -1,6 +1,7 @@
 package com.example.modul10
 
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -46,7 +47,9 @@ class MahasiswaAdapter(
                 putExtra("email", currentMHS.email)
                 putExtra("jurusan", currentMHS.jurusan)
             }
-            context.startActivity(intent)
+            if (context is Activity) {
+                context.startActivityForResult(intent, MainActivity.REQUEST_CODE_UPDATE)
+            }
         }
 
         holder.btnDel.setOnClickListener {

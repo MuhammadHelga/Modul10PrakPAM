@@ -2,6 +2,7 @@ package com.example.modul10
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -98,12 +99,20 @@ class ViewMahasiswa : AppCompatActivity() {
                     viewEmail.text = email
                     viewJurusan.text = jurusan
 
-                    intent.putExtra("id", id)
-                    intent.putExtra("nrp", nrp)
-                    intent.putExtra("nama", nama)
-                    intent.putExtra("email", email)
-                    intent.putExtra("jurusan", jurusan)
-                    setResult(Activity.RESULT_OK, intent)
+//                    intent.putExtra("id", id)
+//                    intent.putExtra("nrp", nrp)
+//                    intent.putExtra("nama", nama)
+//                    intent.putExtra("email", email)
+//                    intent.putExtra("jurusan", jurusan)
+//                    setResult(Activity.RESULT_OK, intent)
+                    val resultIntent = Intent().apply {
+                        putExtra("id", id)
+                        putExtra("nrp", nrp)
+                        putExtra("nama", nama)
+                        putExtra("email", email)
+                        putExtra("jurusan", jurusan)
+                    }
+                    setResult(Activity.RESULT_OK, resultIntent)
                 } else {
                     Toast.makeText(this@ViewMahasiswa, "Gagal mengupdate mahasiswa", Toast.LENGTH_SHORT).show()
                 }

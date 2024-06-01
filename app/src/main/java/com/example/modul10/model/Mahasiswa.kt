@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 class Mahasiswa {
     @SerializedName("nama")
-    val nama: String? = null
+    var nama: String? = null
     @SerializedName("jurusan")
-    val jurusan: String? = null
+    var jurusan: String? = null
     @SerializedName("id")
     val id: String? = null
     @SerializedName("nrp")
-    val nrp: String? = null
+    var nrp: String? = null
     @SerializedName("email")
-    val email: String? = null
+    var email: String? = null
 }

@@ -264,7 +264,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="15dp"
-            android:text="Button"
+            android:text="Simpan Update"
             android:textSize="20sp" />
 
     </LinearLayout>

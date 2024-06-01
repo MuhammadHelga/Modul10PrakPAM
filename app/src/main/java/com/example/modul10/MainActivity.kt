@@ -1,6 +1,7 @@
 package com.example.modul10
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -123,5 +124,32 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_UPDATE && resultCode == Activity.RESULT_OK) {
+            data?.let {
+                val id = it.getStringExtra("id")
+                val nrp = it.getStringExtra("nrp")
+                val nama = it.getStringExtra("nama")
+                val email = it.getStringExtra("email")
+                val jurusan = it.getStringExtra("jurusan")
+
+                // Temukan item yang diupdate dan perbarui
+                val index = mhsList.indexOfFirst { mahasiswa -> mahasiswa.id == id }
+                if (index != -1) {
+                    mhsList[index].nrp = nrp
+                    mhsList[index].nama = nama
+                    mhsList[index].email = email
+                    mhsList[index].jurusan = jurusan
+                    mhsAdapter.notifyItemChanged(index)
+                }
+            }
+        }
+    }
+
+    companion object {
+        const val REQUEST_CODE_UPDATE = 1
     }
 }
